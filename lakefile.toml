@@ -1,0 +1,6 @@
+name = "SIDEClassNumberAnomaly"
+version = "0.1.0"
+defaultTargets = ["SIDEClassNumberAnomaly"]
+
+[[lean_lib]]
+name = "SIDEClassNumberAnomaly"
