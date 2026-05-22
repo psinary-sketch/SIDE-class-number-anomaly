@@ -21,7 +21,7 @@
   PATTERN that emerges from those class numbers under the Trivium's
   squarefree-{−1,2,3} representation.
 
-  Theorems: 16.  sorry: 0.  axioms: 0.
+  Theorems: 17 (v0.2 adds triple_identification_diagonal; LV-H-2).  sorry: 0.  axioms: 0.
 
   Author: J. York Seale (NaturalScience, ORCID 0009-0008-7993-0310)
   Programme: A PLACE TO STAND, Phase 2.  May 2026.
@@ -171,6 +171,40 @@ theorem other_six_lack_all_three :
     ¬(classNumber (-2) > 1 ∧ hammingWeight (-2) = 3) ∧
     ¬(classNumber (-3) > 1 ∧ hammingWeight (-3) = 3) ∧
     ¬(classNumber 6 > 1 ∧ hammingWeight 6 = 3) := by decide
+
+/--
+**Theorem 5.3 (Triple Identification, Diagonal).**
+
+Among the seven Trivium discriminants `triviumDiscs = [-1, 2, 3, -2, -3, 6, -6]`,
+the conjunction `classNumber d = 2 ∧ hammingWeight d = 3 ∧ discMagnitude d = 24`
+holds **if and only if** `d = -6`.  ℚ(√-6) is the unique Trivium field
+exhibiting all three structural markers of the diagonal anomaly.
+
+**Strengthening of `three_way_distinction` and `other_six_lack_all_three`.**
+This theorem adds three substantive elements beyond what those two carry:
+
+  (a) **uniqueness quantifier** across all 7 `triviumDiscs` (not just the
+      single input `-6` as in `three_way_distinction`);
+  (b) the **exact** `classNumber d = 2` (vs the looser `> 1` used in
+      `three_way_distinction` for its structural framing);
+  (c) the `discMagnitude d = 24` clause across all 7 discriminants —
+      `other_six_lack_all_three` omits this clause and only checks the
+      class-number-and-Hamming-weight conjunction.
+
+Source: CLASS_NUMBER_ANOMALY_TRIVIUM_DIAGONAL v1.0 §8.2 (LV-H-2).
+
+**Honesty note.**  `decide` verifies the diagonal-uniqueness *structure* over
+the kernel's encoded arithmetic values: `classNumber`, `hammingWeight`, and
+`discMagnitude` are encoded `def`s sourced from standard tables (Cohen 1993;
+LMFDB; PARI/GP `quadclassunit(-24).no = 2`), not a from-first-principles
+derivation.  The complementary Mathlib-bridge work that would ground
+`classNumber (-6) = 2` from Mathlib's `NumberField.ClassNumber` machinery is
+tracked as the separate verification candidate LV-L-4.
+-/
+theorem triple_identification_diagonal :
+    ∀ d ∈ triviumDiscs,
+      (classNumber d = 2 ∧ hammingWeight d = 3 ∧ discMagnitude d = 24) ↔ d = -6 := by
+  decide
 
 /-! ## §6. The Symmetry Break Between 6 and -6 -/
 

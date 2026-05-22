@@ -1,4 +1,4 @@
-# SIDE-class-number-anomaly v0.1
+# SIDE-class-number-anomaly v0.2
 
 Kernel verification of the **three-way distinction at the diagonal** of the cubit substrate (ℤ/2)³, backing the finding doc *The Class-Number Anomaly of the Trivium Quadratic Fields*.
 
@@ -8,7 +8,7 @@ Kernel verification of the **three-way distinction at the diagonal** of the cubi
 |---|---|
 | Toolchain | `leanprover/lean4:v4.29.0-rc8` |
 | Mathlib | not required |
-| Theorems | 16 |
+| Theorems | 17 |
 | sorry | 0 |
 | axioms | 0 |
 | Author | J. York Seale (NaturalScience) |
@@ -48,6 +48,7 @@ Self-contained — no Mathlib, no external dependencies.
 ### §5 — The three-way distinction (the main theorem)
 - `three_way_distinction` — At d = −6: class number > 1 ∧ Hamming weight 3 ∧ disc magnitude 24
 - `other_six_lack_all_three` — None of the other six Trivium fields has all three properties
+- `triple_identification_diagonal` *(v0.2, LV-H-2)* — Strengthens the above to a uniqueness biconditional: ∀ d ∈ triviumDiscs, (classNumber d = 2 ∧ hammingWeight d = 3 ∧ discMagnitude d = 24) ↔ d = −6. Verifies the diagonal-uniqueness structure across all 7 discriminants using the kernel's encoded arithmetic; complementary Mathlib-bridge work on the class-number value is tracked as LV-L-4.
 
 ### §6 — Symmetry break
 - `symmetry_break` — ℚ(√6) and ℚ(√−6) share |disc| but differ in h and Hamming weight
@@ -75,7 +76,7 @@ Cross-references:
 
 CC-BY 4.0. Cite as:
 
-> Seale, J. Y. (2026). *SIDE-class-number-anomaly v0.1: The three-way distinction at the cubit diagonal.* A PLACE TO STAND Research Programme.
+> Seale, J. Y. (2026). *SIDE-class-number-anomaly v0.2: The three-way distinction at the cubit diagonal.* A PLACE TO STAND Research Programme.
 
 ---
 
