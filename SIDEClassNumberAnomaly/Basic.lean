@@ -99,10 +99,11 @@ theorem three_weight_1 :
 theorem three_weight_2 :
     hammingWeight (-2) = 2 ∧ hammingWeight (-3) = 2 ∧ hammingWeight 6 = 2 := by decide
 
-/-- Theorem 3.3.  Exactly one Trivium field is Hamming weight 3: ℚ(√-6). -/
+/-- Theorem 3.3. ℚ(√-6) has Hamming weight 3 (with Theorems 3.1–3.2, the only Trivium field of weight 3). -/
 theorem unique_diagonal : hammingWeight (-6) = 3 := by decide
 
-/-- Theorem 3.4.  Hamming decomposition (3, 3, 1) covers all seven discriminants. -/
+/-- Theorem 3.4. The hand-set counts w1Count = 3, w2Count = 3, w3Count = 1 sum to 7 (hamming_decomposition); that they are the weight
+counts of the seven discriminants is Theorems 3.1–3.3. -/
 def w1Count : Nat := 3
 def w2Count : Nat := 3
 def w3Count : Nat := 1
@@ -145,18 +146,9 @@ theorem disc_24_only_d_eq_pm_6 :
 /-! ## §5. The Three-Way Distinction at d = -6 -/
 
 /--
-**Theorem 5.1 (Three-Way Distinction).**
-
-The Trivium field ℚ(√-6) is distinguished from the other six fields by
-three a priori independent properties simultaneously:
-
-  (a) Hamming weight 3 in (ℤ/2)³  — the diagonal vertex
-  (b) Class number 2              — the unique non-principal field
-  (c) Discriminant magnitude 24   — the level-3 floor of the {2,3}-tower
-
-These are three projections of the same underlying fact: 6 = 2·3 carries
-full {2, 3}-ramification, producing nonzero coordinates in both prime
-directions and the −1 sign together.
+**Theorem 5.1 (Three-Way Distinction).** ℚ(√-6) carries all three markers at once — class number > 1, Hamming weight 3,
+discriminant magnitude 24 (encoded data); that no other Trivium field carries them all is other_six_lack_all_three and
+triple_identification_diagonal.
 -/
 theorem three_way_distinction :
     classNumber (-6) > 1 ∧
